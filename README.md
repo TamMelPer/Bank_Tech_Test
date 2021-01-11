@@ -88,3 +88,12 @@ For User Story 2 & 3, I felt it would be useful to create an Input/Output table 
 ||12/01/2012 II II 500.00 II 2500 |
 ||11/01/2012 II 2000.00 II II 3000.00 |
 ||11/01/2012 II 1000.00 II II 1000.00 |
+
+## To Run
+
+1. Clone this repository
+2. Run bundle install to install required gems
+3. Run rspec to view tests.
+3. Open IRB, require the file and interact with the program as below:
+
+![Screenshot](irb.png)

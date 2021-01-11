@@ -16,6 +16,14 @@ describe BankAccount do
     end
   end
 
+  describe '#withdraw' do
+    it 'updates the balance from 1000.00 to 500.00 when a withdrawal of 500 is made' do
+      account.deposit(1000)
+      account.withdraw(500)
+      expect(account.balance).to eq 500.00
+    end
+  end
+
   describe '#print_statement' do
     it 'prints a statement with the date, credit and balance after a deposit is made' do
       account.deposit(1000)

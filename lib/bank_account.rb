@@ -21,6 +21,10 @@ class BankAccount
     @transactions << { date: current_date, credit: format_amount(amount), balance: format_amount(@balance) }
   end
 
+  def withdraw(amount)
+    @balance -= amount
+  end
+
   private
 
   def format_amount(amount)

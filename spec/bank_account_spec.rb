@@ -14,4 +14,10 @@ describe BankAccount do
     expect{account.print_statement}.to output("date || credit || debit || balance").to_stdout
   end
 
+  it 'updates the balance from 0 to 1000.00 when a deposit of 1000 is made' do
+    account = BankAccount.new
+    account.deposit(1000)
+    expect(account.balance).to eq 1000.00
+  end
+
 end

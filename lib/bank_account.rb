@@ -8,4 +8,8 @@ def initialize
   @balance = 0
 end
 
+def print_statement
+  print "date || credit || debit || balance"
+end
+
 end

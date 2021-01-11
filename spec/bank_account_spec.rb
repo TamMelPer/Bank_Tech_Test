@@ -9,4 +9,9 @@ describe BankAccount do
     expect(account.balance).to eq 0
   end
 
+  it 'prints a blank statement' do
+    account = BankAccount.new
+    expect{account.print_statement}.to output("date || credit || debit || balance").to_stdout
+  end
+
 end

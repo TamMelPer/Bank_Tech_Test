@@ -70,3 +70,21 @@ So that I can easily follow the history of my transactions,
 I want to view my statement in reverse chronological order.
 
 ```
+
+For User Story 2 & 3, I felt it would be useful to create an Input/Output table to guide the development of my tests and my code.
+
+|Input|Output  |
+|--|--|
+| account.print_statement| date II credit II debit II balance |
+| account.deposit(1000) |  |
+| account.print_statement| date II credit II debit II balance |
+||11/01/2012 II 1000.00 II II 1000.00 |
+| account.deposit(2000) |  |
+| account.print_statement| date II credit II debit II balance |
+||11/01/2012 II 2000.00 II II 3000.00 |
+||11/01/2012 II 1000.00 II II 1000.00 |
+| account.withdraw(500) |  |
+| account.print_statement| date II credit II debit II balance |
+||12/01/2012 II II 500.00 II 2500 |
+||11/01/2012 II 2000.00 II II 3000.00 |
+||11/01/2012 II 1000.00 II II 1000.00 |

@@ -1,25 +1,33 @@
 # frozen_string_literal: true
 
 class BankAccount
+  attr_reader :balance
+  STATEMENT_HEADER = 'date || credit || debit || balance'
 
-attr_reader :balance
-
-def initialize
-  @balance = 0
-  @transactions = []
-end
-
-def print_statement
-  puts "date || credit || debit || balance"
-  @transactions.each do |transaction|
-    puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
+  def initialize
+    @balance = 0
+    @transactions = []
   end
-end
 
-def deposit(amount)
-  @balance += amount
-  @transactions << {date: Time.now.strftime("%d/%m/%Y"), credit: '%.2f' % amount, balance: '%.2f' % @balance}
-end
+  def print_statement
+    puts STATEMENT_HEADER
+    @transactions.each do |transaction|
+      puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
+    end
+  end
 
+  def deposit(amount)
+    @balance += amount
+    @transactions << { date: current_date, credit: format_amount(amount), balance: format_amount(@balance) }
+  end
 
+  private
+
+  def format_amount(amount)
+    '%.2f' % amount
+  end
+
+  def current_date
+    Time.now.strftime('%d/%m/%Y')
+  end
 end

@@ -35,17 +35,17 @@ describe BankAccount do
       expect { account.print_statement }.to output("date || credit || debit || balance\n11/01/2021 || 2000.00 ||  || 2000.00\n").to_stdout
     end
 
-    it 'prints a statement with the date, credit and balance after two deposits are made' do
+    it 'prints a statement with the date, credit and balance after two deposits are made in reverse chronological order' do
       account.deposit(1000)
       account.deposit(2000)
-      expect { account.print_statement }.to output("date || credit || debit || balance\n11/01/2021 || 1000.00 ||  || 1000.00\n11/01/2021 || 2000.00 ||  || 3000.00\n").to_stdout
+      expect { account.print_statement }.to output("date || credit || debit || balance\n11/01/2021 || 2000.00 ||  || 3000.00\n11/01/2021 || 1000.00 ||  || 1000.00\n").to_stdout
     end
 
-    it 'prints a statement with the date, credit and balance after a deposit and withdrawal is made' do
+    it 'prints a statement with the date, credit and balance after a deposit and withdrawal is made in reverse chronological order' do
       account.deposit(1000)
       account.deposit(2000)
       account.withdraw(500)
-      expect { account.print_statement }.to output("date || credit || debit || balance\n11/01/2021 || 1000.00 ||  || 1000.00\n11/01/2021 || 2000.00 ||  || 3000.00\n11/01/2021 ||  || 500.00 || 2500.00\n").to_stdout
+      expect { account.print_statement }.to output("date || credit || debit || balance\n11/01/2021 ||  || 500.00 || 2500.00\n11/01/2021 || 2000.00 ||  || 3000.00\n11/01/2021 || 1000.00 ||  || 1000.00\n").to_stdout
     end
   end
 end

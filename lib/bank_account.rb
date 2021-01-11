@@ -11,7 +11,7 @@ class BankAccount
 
   def print_statement
     puts STATEMENT_HEADER
-    @transactions.each do |transaction|
+    @transactions.reverse_each do |transaction|
       puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
     end
   end

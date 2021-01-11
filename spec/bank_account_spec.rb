@@ -17,7 +17,11 @@ subject(:account) { BankAccount.new }
 
   it 'prints a statement with the date, credit and balance after a deposit is made' do
     account.deposit(1000)
-    expect{account.print_statement}.to output("date || credit || debit || balance\n11/01/2021 || 1000.00 || || 1000.00\n").to_stdout
+    expect{account.print_statement}.to output("date || credit || debit || balance\n11/01/2021 || 1000.00 ||  || 1000.00\n").to_stdout
   end
 
+  it 'prints a statement with the date, credit and balance after a different deposit amount is made' do
+    account.deposit(2000)
+    expect{account.print_statement}.to output("date || credit || debit || balance\n11/01/2021 || 2000.00 ||  || 2000.00\n").to_stdout
+  end
 end

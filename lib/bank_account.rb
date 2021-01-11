@@ -6,19 +6,20 @@ attr_reader :balance
 
 def initialize
   @balance = 0
+  @transactions = []
 end
 
 def print_statement
   puts "date || credit || debit || balance"
-  puts "11/01/2021 || 1000.00 || || 1000.00"
+  @transactions.each do |transaction|
+    puts "#{transaction[:date]} || #{transaction[:credit]} || #{transaction[:debit]} || #{transaction[:balance]}"
+  end
 end
 
 def deposit(amount)
   @balance += amount
+  @transactions << {date: Time.now.strftime("%d/%m/%Y"), credit: '%.2f' % amount, balance: '%.2f' % @balance}
 end
 
-def balance
-  @balance
-end
 
 end

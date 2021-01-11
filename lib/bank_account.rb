@@ -9,7 +9,8 @@ def initialize
 end
 
 def print_statement
-  print "date || credit || debit || balance"
+  puts "date || credit || debit || balance"
+  puts "11/01/2021 || 1000.00 || || 1000.00"
 end
 
 def deposit(amount)

@@ -10,13 +10,14 @@ subject(:account) { BankAccount.new }
     expect(account.balance).to eq 0
   end
 
-  it 'prints a blank statement' do
-    expect{account.print_statement}.to output("date || credit || debit || balance").to_stdout
-  end
-
   it 'updates the balance from 0 to 1000.00 when a deposit of 1000 is made' do
     account.deposit(1000)
     expect(account.balance).to eq 1000.00
+  end
+
+  it 'prints a statement with the date, credit and balance after a deposit is made' do
+    account.deposit(1000)
+    expect{account.print_statement}.to output("date || credit || debit || balance\n11/01/2021 || 1000.00 || || 1000.00\n").to_stdout
   end
 
 end

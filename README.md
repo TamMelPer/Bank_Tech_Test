@@ -35,3 +35,38 @@ date || credit || debit || balance
 ## Self-assessment
 
 Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
+
+## User Stories
+
+The first step in my planing process was to break the requirements and acceptance criteria into user stories and think about how I would expect the user to interact with the code.
+
+```
+As a client,
+So that I can save my money,
+I want to open a bank account.
+
+As a client,
+So that I can add money to my account,
+I want to be able to make a deposit.
+
+As a client,
+So that I can keep track of my money,
+I want to be able to view my balance.
+
+As a client,
+So that I can spend my money,
+I want to be able to make a withdrawal.
+
+As a client,
+So that I know when i made a transaction,
+I want to see the date the transaction was made,
+
+As a client,
+So that I can see a history of my transactions,
+I want to be able to print a statement.
+
+As a client,
+So that I can easily follow the history of my transactions,
+I want to view my statement in reverse chronological order.
+
+```

@@ -12,4 +12,9 @@ describe Transaction do
     transaction = Transaction.new("credit", 1000, 1000)
     expect(transaction.create).to eq ("11/01/2021 || 1000.00 ||  || 1000.00")
   end
+
+  it 'creates a debit tranction' do
+    transaction = Transaction.new("debit", 1000, 0)
+    expect(transaction.create).to eq ("11/01/2021 ||  || 1000.00 || 0.00")
+  end
 end

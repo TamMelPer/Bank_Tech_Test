@@ -6,7 +6,11 @@ class Transaction
   end
 
   def create
-    "#{current_date} || #{format_amount(@amount)} ||  || #{format_amount(@balance)}"
+    if @type == "credit"
+      "#{current_date} || #{format_amount(@amount)} ||  || #{format_amount(@balance)}"
+    elsif @type == "debit"
+      "#{current_date} ||  || #{format_amount(@amount)} || #{format_amount(@balance)}"
+    end
   end
 
   def current_date

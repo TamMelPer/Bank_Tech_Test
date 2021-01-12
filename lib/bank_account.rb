@@ -27,13 +27,4 @@ class BankAccount
     @transactions << (Transaction.new("debit", amount, @balance)).create
   end
 
-  private
-
-  def format_amount(amount)
-    '%.2f' % amount
-  end
-
-  def current_date
-    Time.now.strftime('%d/%m/%Y')
-  end
 end

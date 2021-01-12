@@ -5,6 +5,10 @@ require 'bank_account'
 describe BankAccount do
   subject(:account) { BankAccount.new }
 
+  before(:each) do
+    allow(Time).to receive(:now).and_return(Time.parse("11/01/2021"))
+  end
+
   it 'opens a new bank account with a 0 balance' do
     expect(account.balance).to eq 0
   end

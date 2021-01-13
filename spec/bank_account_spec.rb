@@ -18,6 +18,13 @@ describe BankAccount do
       account.deposit(1000)
       expect(account.balance).to eq 1000.00
     end
+    it 'stores the transaction when a deposit is made' do
+      transaction_double = double :transaction
+      transaction_class_double = double :transaction_class, new: transaction_double
+      bank_account = BankAccount.new(transaction_class_double)
+      expect(transaction_double).to receive(:create)
+      bank_account.deposit(1000)
+    end
   end
 
   describe '#withdraw' do

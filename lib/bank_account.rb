@@ -5,9 +5,10 @@ class BankAccount
   attr_reader :balance
   STATEMENT_HEADER = 'date || credit || debit || balance'
 
-  def initialize
+  def initialize(transaction_class = Transaction)
     @balance = 0
     @transactions = []
+    @transaction_class = transaction_class
   end
 
   def print_statement
@@ -19,7 +20,7 @@ class BankAccount
 
   def deposit(amount)
     @balance += amount
-    @transactions << (Transaction.new("credit", amount, @balance)).create
+    @transactions << (@transaction_class.new("credit", amount, @balance)).create
   end
 
   def withdraw(amount)

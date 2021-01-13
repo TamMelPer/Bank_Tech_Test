@@ -8,22 +8,23 @@ describe Transaction do
     allow(Time).to receive(:now).and_return(Time.parse("11/01/2021"))
   end
 
-  subject(:transaction) { Transaction.new("debit", 500, 1000) }
+  it 'formats the date on a new instance of the Transaction class' do
+    transaction = Transaction.new(credit: 1000, debit: 0, balance: 1000)
+    expect(transaction.date).to eq ("11/01/2021")
+  end
 
-    it 'knows its type' do
-      expect(transaction.type).to eq "debit"
-    end
+  it 'formats the debit amount' do
+    transaction = Transaction.new(credit: 0, debit: 1000, balance: 0)
+    expect(transaction.debit).to eq ("1000.00")
+  end
 
-    it 'knows its amount' do
-      expect(transaction.amount).to eq ("500.00")
-    end
+  it 'formats the credit amount' do
+    transaction = Transaction.new(credit: 1000, debit: 0, balance: 1000)
+    expect(transaction.credit).to eq ("1000.00")
+  end
 
-    it 'knows its balance' do
-      expect(transaction.balance).to eq ("1000.00")
-    end
-
-    it 'knows its amount' do
-      expect(transaction.date).to eq "11/01/2021"
-    end
-
+  it 'formats the balance amount' do
+    transaction = Transaction.new(credit: 1000, debit: 0, balance: 1000)
+    expect(transaction.balance).to eq ("1000.00")
+  end
 end

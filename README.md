@@ -110,4 +110,4 @@ date || credit || debit || balance
 13/01/2021 || 1000.00 || 0.00 || 1000.00
 ```
 
-After receiving feedback ![Feedback](feedback.png) I simplified some code by storing the transactions as a list of Transaction instances directly (so not calling **create** after Transaction.new ) in the **deposit** and **withdraw** methods. I also decoupled the classes using mocking to isolate the unit tests so the BankAccount unit tests don't directly rely on the actual implementation of the Transaction class. Next step, is to create a new class that will handle printing statements.
+After receiving [feedback](feedback.png) I simplified some code by storing the transactions as a list of Transaction instances directly (so not calling **create** after Transaction.new ) in the **deposit** and **withdraw** methods. I also decoupled the classes using mocking to isolate the unit tests so the BankAccount unit tests don't directly rely on the actual implementation of the Transaction class. Next step, is to create a new class that will handle printing statements.

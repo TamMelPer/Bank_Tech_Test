@@ -96,4 +96,18 @@ For User Story 2 & 3, I felt it would be useful to create an Input/Output table 
 3. Run rspec to view tests.
 3. Open IRB, require the file and interact with the program as below:
 
-![Screenshot](irb.png)
+```
+2.7.0 :001 > require './lib/bank_account.rb'
+ => true
+2.7.0 :002 > account = BankAccount.new
+2.7.0 :003 > account.deposit(1000)
+2.7.0 :004 > account.deposit(2000)
+2.7.0 :005 > account.withdraw(500)
+2.7.0 :006 > account.print_statement
+date || credit || debit || balance
+13/01/2021 || 0.00 || 500.00 || 2500.00
+13/01/2021 || 2000.00 || 0.00 || 3000.00
+13/01/2021 || 1000.00 || 0.00 || 1000.00
+```
+
+After receiving feedback ![Feedback](feedback.png) I simplified some code by storing the transactions as a list of Transaction instances directly (so not calling **create** after Transaction.new ) in the **deposit** and **withdraw** methods. I also decoupled the classes using mocking to isolate the unit tests so the BankAccount unit tests don't directly rely on the actual implementation of the Transaction class. Next step, is to create a new class that will handle printing statements.

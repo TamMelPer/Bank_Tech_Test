@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative 'transaction'
 
 class BankAccount
@@ -20,12 +21,11 @@ class BankAccount
 
   def deposit(amount)
     @balance += amount
-    @transactions << (@transaction_class.new(credit: amount, debit: 0, balance: @balance))
+    @transactions << @transaction_class.new(credit: amount, debit: 0, balance: @balance)
   end
 
   def withdraw(amount)
     @balance -= amount
-    @transactions << (@transaction_class.new(credit: 0, debit: amount, balance: @balance))
+    @transactions << @transaction_class.new(credit: 0, debit: amount, balance: @balance)
   end
-
 end

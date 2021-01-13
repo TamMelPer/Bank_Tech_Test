@@ -8,13 +8,22 @@ describe Transaction do
     allow(Time).to receive(:now).and_return(Time.parse("11/01/2021"))
   end
 
-  it 'creates a credit tranction' do
-    transaction = Transaction.new("credit", 1000, 1000)
-    expect(transaction.create).to eq ({:balance=>"1000.00", :credit=>"1000.00", :date=>"11/01/2021"})
-  end
+  subject(:transaction) { Transaction.new("debit", 500, 1000) }
 
-  it 'creates a debit tranction' do
-    transaction = Transaction.new("debit", 1000, 0)
-    expect(transaction.create).to eq ({:balance=>"0.00", :debit=>"1000.00", :date=>"11/01/2021"})
-  end
+    it 'knows its type' do
+      expect(transaction.type).to eq "debit"
+    end
+
+    it 'knows its amount' do
+      expect(transaction.amount).to eq ("500.00")
+    end
+
+    it 'knows its balance' do
+      expect(transaction.balance).to eq ("1000.00")
+    end
+
+    it 'knows its amount' do
+      expect(transaction.date).to eq "11/01/2021"
+    end
+
 end

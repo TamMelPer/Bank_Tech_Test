@@ -22,7 +22,7 @@ describe BankAccount do
       transaction_double = double :transaction
       transaction_class_double = double :transaction_class, new: transaction_double
       bank_account = BankAccount.new(transaction_class_double)
-      expect(transaction_double).to receive(:create)
+      expect(transaction_class_double).to receive(:new)
       bank_account.deposit(1000)
     end
   end

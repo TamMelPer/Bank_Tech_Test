@@ -20,12 +20,12 @@ class BankAccount
 
   def deposit(amount)
     @balance += amount
-    @transactions << (@transaction_class.new("credit", amount, @balance)).create
+    @transactions << (@transaction_class.new("credit", amount, @balance))
   end
 
   def withdraw(amount)
     @balance -= amount
-    @transactions << (Transaction.new("debit", amount, @balance)).create
+    @transactions << (@transaction_class.new("debit", amount, @balance))
   end
 
 end

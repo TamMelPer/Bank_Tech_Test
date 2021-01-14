@@ -10,13 +10,8 @@ class Transaction
     @balance = format_amount(balance)
   end
 
-  # def create
-  #   if @type == "credit"
-  #     { date: current_date, credit: format_amount(@amount), balance: format_amount(@balance) }
-  #   elsif @type == "debit"
-  #     { date: current_date, debit: format_amount(@amount), balance: format_amount(@balance) }
-  #   end
-  # end
+
+  private
 
   def current_date
     Time.now.strftime('%d/%m/%Y')

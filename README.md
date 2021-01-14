@@ -1,12 +1,6 @@
 # Bank tech test
 
-Today, you'll practice doing a tech test.
-
-For most tech tests, you'll essentially have unlimited time.  This practice session is about producing the best code you can when there is a minimal time pressure.
-
-You'll get to practice your OO design and TDD skills.
-
-You'll work alone, and you'll also review your own code so you can practice reflecting on and improving your own work.
+I completed this tech test to practice my OO design and TDD skills. Original specifications can be found [here](https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md)
 
 ## Specification
 
@@ -32,11 +26,7 @@ date || credit || debit || balance
 10/01/2012 || 1000.00 || || 1000.00
 ```
 
-## Self-assessment
-
-Once you have completed the challenge and feel happy with your solution, here's a form to help you reflect on the quality of your code: https://docs.google.com/forms/d/1Q-NnqVObbGLDHxlvbUfeAC7yBCf3eCjTmz6GOqC9Aeo/edit
-
-## User Stories
+## The Plan
 
 The first step in my planing process was to break the requirements and acceptance criteria into user stories and think about how I would expect the user to interact with the code.
 
@@ -89,6 +79,15 @@ For User Story 2 & 3, I felt it would be useful to create an Input/Output table 
 ||11/01/2012 II 2000.00 II II 3000.00 |
 ||11/01/2012 II 1000.00 II II 1000.00 |
 
+After receiving [feedback](feedback.png) I simplified some code by storing the transactions as a list of Transaction instances directly (so not calling `create` after Transaction.new ) in the `deposit` and `withdraw` methods. I also decoupled the classes using mocking to isolate the unit tests so the BankAccount unit tests don't directly rely on the actual implementation of the Transaction class or Statement.
+
+Once I had isolated the unit tests, I added a separate rspec feature test (no mocks) which asserts that the program is functioning as expected.
+
+I used Rubocop to fix code that did not conform to the Ruby style guide and SimpleCov to check my test coverage.
+
+![RSPEC](tests.png)
+
+
 ## To Run
 
 1. Clone this repository
@@ -109,5 +108,3 @@ date || credit || debit || balance
 13/01/2021 || 2000.00 || 0.00 || 3000.00
 13/01/2021 || 1000.00 || 0.00 || 1000.00
 ```
-
-After receiving [feedback](feedback.png) I simplified some code by storing the transactions as a list of Transaction instances directly (so not calling **create** after Transaction.new ) in the **deposit** and **withdraw** methods. I also decoupled the classes using mocking to isolate the unit tests so the BankAccount unit tests don't directly rely on the actual implementation of the Transaction class. Next step, is to create a new class that will handle printing statements.

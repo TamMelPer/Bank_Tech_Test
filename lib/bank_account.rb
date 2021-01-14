@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'transaction'
+require_relative 'statement'
 
 class BankAccount
   attr_reader :balance, :transactions
@@ -13,10 +14,8 @@ class BankAccount
   end
 
   def print_statement
-    puts STATEMENT_HEADER
-    @transactions.reverse_each do |transaction|
-      puts "#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
-    end
+    statement = Statement.new
+    statement.print(@transactions)
   end
 
   def deposit(amount)

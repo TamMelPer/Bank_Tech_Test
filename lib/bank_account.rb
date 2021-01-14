@@ -7,15 +7,15 @@ class BankAccount
   attr_reader :balance, :transactions
 
 
-  def initialize(transaction_class = Transaction, statement_class = Statement.new)
+  def initialize(transaction_class = Transaction, statement = Statement.new)
     @balance = 0
     @transactions = []
     @transaction_class = transaction_class
-    @statement_class = statement_class
+    @statement = statement
   end
 
   def print_statement
-    @statement_class.print(@transactions)
+    @statement.print(@transactions)
   end
 
   def deposit(amount)

@@ -10,7 +10,6 @@ class Transaction
     @balance = format_amount(balance)
   end
 
-
   private
 
   def current_date

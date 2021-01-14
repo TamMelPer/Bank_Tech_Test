@@ -3,15 +3,14 @@
 require 'bank_account'
 
 describe BankAccount do
-
   before(:each) do
     allow(Time).to receive(:now).and_return(Time.parse('11/01/2021'))
   end
 
-  let(:transaction_double) {double :transaction}
-  let(:transaction_class_double) {double :transaction_class, new: transaction_double}
-  let(:statement_double) {double :statement, print: "date || credit || debit || balance\n11/01/2021 || 1000.00 || 0.00 || 1000.00\n"}
-  let(:account) {BankAccount.new(transaction_class_double, statement_double)}
+  let(:transaction_double) { double :transaction }
+  let(:transaction_class_double) { double :transaction_class, new: transaction_double }
+  let(:statement_double) { double :statement, print: "date || credit || debit || balance\n11/01/2021 || 1000.00 || 0.00 || 1000.00\n" }
+  let(:account) { BankAccount.new(transaction_class_double, statement_double) }
 
   it 'opens a new bank account with a 0 balance' do
     expect(account.balance).to eq 0
@@ -42,6 +41,5 @@ describe BankAccount do
       account.deposit(1000)
       expect(account.print_statement).to eq("date || credit || debit || balance\n11/01/2021 || 1000.00 || 0.00 || 1000.00\n")
     end
-
   end
 end
